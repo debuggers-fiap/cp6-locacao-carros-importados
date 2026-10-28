@@ -1,8 +1,14 @@
+import { Link } from 'react-router-dom'
+import Card from '../components/Card'
+import carros from '../data/carros'
+
 const vantagens = [
   { titulo: 'Entrega no endereço', texto: 'Levamos o carro até sua casa, hotel ou aeroporto.' },
   { titulo: 'Seguro completo', texto: 'Proteção total inclusa em todas as diárias.' },
   { titulo: 'Frota revisada', texto: 'Modelos recentes, revisados a cada locação.' },
 ]
+
+const destaques = carros.filter((carro) => carro.destaque)
 
 function Home() {
   return (
@@ -20,6 +26,12 @@ function Home() {
             Esportivos, SUVs e elétricos das melhores marcas do mundo, prontos para você por dia,
             semana ou mês.
           </p>
+          <Link
+            to="/carros"
+            className="mt-8 inline-block rounded-lg bg-dourado px-6 py-3 font-bold text-asfalto transition hover:brightness-110"
+          >
+            Ver frota completa
+          </Link>
         </div>
       </section>
 
@@ -30,6 +42,15 @@ function Home() {
             <p className="mt-2 text-sm text-zinc-400">{item.texto}</p>
           </div>
         ))}
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pt-20">
+        <h2 className="font-display text-3xl font-extrabold">Destaques da semana</h2>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {destaques.map((carro) => (
+            <Card key={carro.id} {...carro} />
+          ))}
+        </div>
       </section>
     </main>
   )
