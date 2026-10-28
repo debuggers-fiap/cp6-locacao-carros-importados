@@ -28,6 +28,10 @@ npm install
 npm run dev
 ```
 
+## Créditos
+
+Fotos dos carros: Wikimedia Commons (licenças Creative Commons).
+
 ## Integrante
 
 Enrico Vidal - RM 569217
