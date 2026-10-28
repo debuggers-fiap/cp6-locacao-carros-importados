@@ -1,14 +1,20 @@
 const formatarPreco = (valor) =>
   valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 })
 
-function Card({ marca, modelo, origem, ano, potencia, categoria, diaria, cor }) {
+function Card({ imagem, marca, modelo, origem, ano, potencia, categoria, diaria, cor }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-grafite transition hover:-translate-y-1 hover:border-dourado/50">
-      <div className={`relative flex h-40 items-end bg-gradient-to-br p-4 ${cor}`}>
-        <span className="absolute right-3 top-3 rounded-full bg-black/40 px-3 py-1 text-xs font-medium">
+      <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${cor}`}>
+        <img
+          src={imagem}
+          alt={`${marca} ${modelo}`}
+          loading="lazy"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-grafite via-transparent to-transparent" />
+        <span className="absolute right-3 top-3 rounded-full bg-black/60 px-3 py-1 text-xs font-medium backdrop-blur">
           {categoria}
         </span>
-        <span className="font-display text-5xl font-black uppercase text-white/20">{marca}</span>
       </div>
 
       <div className="flex flex-1 flex-col p-5">
