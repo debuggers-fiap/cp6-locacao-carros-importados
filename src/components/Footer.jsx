@@ -1,6 +1,6 @@
-function Footer() {
-  const ano = new Date().getFullYear()
+const ano = new Date().getFullYear()
 
+function Footer() {
   return (
     <footer className="mt-20 border-t border-white/10 bg-grafite">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-3">
